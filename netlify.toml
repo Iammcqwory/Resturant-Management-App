@@ -1,0 +1,22 @@
+[images]
+  remote_images = ["https://same-assets.com/images/*"]
+
+[build]
+  command = "bun run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.10.0"
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+[dev]
+  command = "bun run dev"
+  port = 3000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
